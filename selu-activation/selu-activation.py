@@ -5,5 +5,14 @@ def selu(x, lam=1.0507009873554804934193349852946, alpha=1.673263242354377284817
     Apply SELU activation element-wise.
     Returns a list of floats rounded to 4 decimal places.
     """
-    x = np.array(x)
-    return np.where(x > 0, lam * x, lam * alpha * (np.exp(x) - 1))
+    # Write code here
+    x = np.asarray(x,dtype=float)
+    result=[]
+    for value in x:
+        result_item = 0
+        if value > 0:
+            result_item = lam * value
+        else:
+            result_item =  lam * alpha * (np.exp(value) - 1)
+        result.append(round(float(result_item),4))
+    return result
